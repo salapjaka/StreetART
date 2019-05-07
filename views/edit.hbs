@@ -1,0 +1,42 @@
+edit pageadsfadsfa
+{{_id}}
+
+<form action="./edit?art_id={{art._id}}" method="post" enctype="multipart/form-data">
+<label for ="photo">Your Wall</label>
+  <img onclick = "function(){
+    console.log('hi')
+    document.getElementById('picture').click
+  }" src="{{art.photoPath}}" /> 
+  {{!-- <input type="file" id="picture" name="photo" value="{{art.photoPath}}"> --}}
+<br>
+  <label for="artName">Art Name: </label>
+  <input type="text" name="artName" value="{{art.artName}}" />
+<br>
+  <label for="country">Country: </label>
+  <input type="text" name="location[country]" value="{{art.location.country}}" />
+<br>
+ <label for="city">City: </label>
+  <input type="text" name="location[city]" value="{{art.location.city}}" />
+<br>
+  <label for="street">Street: </label>
+  <input type="text" name="location[street]" value="{{art.location.street}}" />
+  <br>
+
+  <label for="postalcode">Postal Code: </label>
+  <input type="text" name="location[postalcode]" value="{{art.location.postalcode}}" />
+  <br>
+
+  <label for="firstName">First Name: </label>
+  <input type="text" name="artistName[firstName]" value="{{art.artistName.firstName}}" />
+<br>
+  <label for="lastName">Last Name:</label>
+  <input type="text" name="artistName[lastName]" value="{{art.artistName.lastName}}" />
+<br>
+  <label for="nickName">Nick Name:</label>
+  <input type="text" name="artistName[nickName]" value="{{art.artistName.nickName}}" />
+<br>
+  <label for="dateTaken">Date Taken:</label>
+  <input type="text" name="dateTaken" value="{{art.dateTaken}}" />
+<br>
+  <button type="submit">UPDATE</button>
+</form>

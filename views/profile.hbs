@@ -1,0 +1,38 @@
+
+
+<div class="page-header text-right">
+    <h3>Welcome to your walls</h3>
+    <!-- LOCAL INFORMATION -->
+            {{#if user.local.email }}
+                {{ user.local.email }}<br>
+                
+                {{!-- <a href="/unlink/local" class="btn btn-default">Unlink</a> --}}
+            {{else}}
+                <a href="/connect/local" class="btn btn-default">Connect Local</a>
+            {{/if}}
+    <!-- FACEBOOK INFORMATION -->
+            <!-- check if the user has this token (is the user authenticated with this social account) -->
+            {{#if user.facebook.token }}
+                <p>
+                    {{!-- <strong>email</strong>: {{ user.facebook.email }}<br> --}}
+                    <strong>name</strong>: {{ user.facebook.name }}<br>
+                </p>
+                <a href="/unlink/facebook" class="btn btn-primary">Unlink Facebook</a>
+            {{else}}
+                <a href="/connect/facebook" class="btn btn-primary">Connect Facebook</a>
+            {{/if}}
+    <div>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+</div>
+
+<h1> My Walls </h1>
+<!--<a href="./art">All my art</a>-->
+{{>artList artInHBS=artInHBS }}
+
+
+
+
+
+

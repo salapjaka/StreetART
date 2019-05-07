@@ -1,0 +1,41 @@
+add art
+<form action="/add" method ="post" enctype="multipart/form-data">
+<label for ="photoPath">Your Wall</label>
+  <input type="file" name="photo" value="{{art.photoPath}}">
+<br>
+<label>Location</label>
+  <input type="text" name="latitude" placeholder="latitude" >
+  <input type="text" name="longitude" placeholder="longitude">
+<br>
+  <label for="artName">Art Name: </label>
+  <input type="text" name="artName" value="{{art.artName}}" />
+<br>
+  <label for="country">Country: </label>
+  <input type="text" name="location[country]" value="{{art.location.country}}" />
+<br>
+ <label for="city">City: </label>
+  <input type="text" name="location[city]" value="{{art.location.city}}" />
+<br>
+  <label for="street">Street: </label>
+  <input type="text" name="location[street]" <value="{{art.location.street}}" />
+  <br>
+
+  <label for="postalcode">Postal Code: </label>
+  <input type="text" name="location[postalcode]" value="{{art.location.postalcode}}" />
+  <br>
+
+  
+  <label for="firstName">Artist First Name: </label>
+  <input type="text" name="artistName[firstName]" value="{{art.artistName.firstName}}" />
+<br>
+  <label for="lastName">Artist Last Name:</label>
+  <input type="text" name="artistName[lastName]" value="{{art.artistName.lastName}}" />
+<br>
+  <label for="nickName">Artist Nick Name:</label>
+  <input type="text" name="artistName[nickName]" value="{{art.artistName.nickName}}" />
+<br>
+  <label for="dateTaken">Date Photo Taken:</label>
+  <input type="text" name="dateTaken" value="{{art.dateTaken}}" />
+<br>
+  <button type="submit">ADD</button>
+</form>
