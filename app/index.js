@@ -18,13 +18,10 @@ module.exports = function(app, passport) {
 
   app.post('/add', uploadCloud.single('photo'), (req, res, next) => {
      console.log(req.file, req.body, '$$%%$%%')
-     let location = {
-      type: 'Point',
-      coordinates: [req.body.longitude, req.body.latitude]
-      };
-    const {artName, artistName, dateTaken} = req.body;
+     
+    const {artName, location, artistName, dateTaken} = req.body;
     
-    const newArt = new Art({artName, photoPath:req.file.url, artistName, dateTaken})
+    const newArt = new Art({artName, photoPath:req.file.url, location, artistName, dateTaken})
     newArt.save() 
     .then((art) => {
       res.redirect('/profile')
@@ -99,8 +96,28 @@ module.exports = function(app, passport) {
     })
   });
 
-
-
+  app.get('/api', (req, res, next) => {
+    Art.find({}, (error, artFromDb) => {
+      if (error) { 
+        next(error); 
+      } else { 
+        res.status(200).json({ artInHBS: artFromDb });
+      }
+    });
+  });
+  
+  // to see raw data in your browser, just go on: http://localhost:3000/api/someIdHere
+  app.get('/api/:id', (req, res, next) => {
+    let artId = req.params.id;
+    Art.findOne({_id: artId}, (error, oneArtFromDB) => {
+      if (error) { 
+        next(error) 
+      } else { 
+        res.status(200).json({ artInHBS: oneArtFromDB }); 
+      }
+    });
+  });
+  
   }
 
 // route middleware to ensure user is logged in
@@ -110,18 +127,3 @@ function isLoggedIn(req, res, next) {
 
   res.redirect('/');
 }
-
-// function startMap() {
-//   const ironhackBCN = {
-//   	lat: 41.3977381,
-//   	lng: 2.190471916};
-//   const map = new google.maps.Map(
-//     document.getElementById('map'),
-//     {
-//       zoom: 5,
-//       center: ironhackBCN
-//     }
-//   );
-// }
-
-// startMap();

@@ -10,7 +10,7 @@ var passport = require('passport');
 var flash    = require('connect-flash');
 var hbs    = require('hbs');
 var fs    = require('file-system');
-
+require('dotenv').config()
 
 var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');

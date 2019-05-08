@@ -12,7 +12,11 @@ edit pageadsfadsfa
   <label for="artName">Art Name: </label>
   <input type="text" name="artName" value="{{art.artName}}" />
 <br>
-  <label for="country">Country: </label>
+<label>Location</label>
+  <input type="text" name="latitude" placeholder="latitude" >
+  <input type="text" name="longitude" placeholder="longitude">
+  
+  {{!-- <label for="country">Country: </label>
   <input type="text" name="location[country]" value="{{art.location.country}}" />
 <br>
  <label for="city">City: </label>
@@ -24,7 +28,7 @@ edit pageadsfadsfa
 
   <label for="postalcode">Postal Code: </label>
   <input type="text" name="location[postalcode]" value="{{art.location.postalcode}}" />
-  <br>
+  <br> --}}
 
   <label for="firstName">First Name: </label>
   <input type="text" name="artistName[firstName]" value="{{art.artistName.firstName}}" />

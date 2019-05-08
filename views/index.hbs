@@ -1,12 +1,4 @@
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
      <div>
         <p>Login or Signup:</p>
 
@@ -16,6 +8,7 @@
         {{!-- <a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter</a>
         <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a> --}}
     </div>
+    sorry
 <div id="map"></div>
 <style>
        #map {
@@ -23,6 +16,33 @@
         width: 100%;
        }
 </style>
-</body>
-</html>
+<script>
+
+function startMap() {
+  const ironhackMiami = {
+  	lat: 25.765787699999997,
+  	lng: -80.19577989999999};
+  const map = new google.maps.Map(
+    document.getElementById('map'),
+    {
+      zoom: 5,
+      center: ironhackMiami
+    }
+  );
+  const myMarker = new google.maps.Marker({
+  position: {
+ 
+    lat: ironhackMiami.lat,
+    lng: ironhackMiami.lng
+  },
+  map: map,
+  title: "I'm here"
+});
+
+
+}
+
+startMap();
+
+</script>
 
