@@ -18,31 +18,74 @@
 </style>
 <script>
 
-function startMap() {
+let arts = JSON.parse('{{{json arts}}}')
+console.log(arts)
+window.onload = () => {
+  console.log('we need markers')
+
   const ironhackMiami = {
   	lat: 25.765787699999997,
-  	lng: -80.19577989999999};
+  	lng: -80.19577989999999
+  };
+
+
+
   const map = new google.maps.Map(
     document.getElementById('map'),
     {
       zoom: 5,
       center: ironhackMiami
-    }
-  );
-  const myMarker = new google.maps.Marker({
-  position: {
- 
+    });
+
+ let center = {
     lat: ironhackMiami.lat,
     lng: ironhackMiami.lng
-  },
-  map: map,
-  title: "I'm here"
-});
+  }; 
+
+  const markers = []
+  arts.forEach(art=>{
+
+    //var myLatLng = {lat: -25.363, lng: 131.044};
+    var myLatLng = {lat: art.latitude, lng: art.longitude }
+
+    let marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+    });
+    markers.push(marker)
+})
+console.log(markers)
 
 
+
+
+
+ /* function getArt() {
+  axios.get("/api")
+   .then( res => {
+     placeArt(res.data.art);
+   })
+   .catch(error => {
+     console.log(error);
+   })
+ }
+ function placeArt(art){
+  art.forEach(function(art){
+    const center = {
+      lat: art.location.coordinates[1],
+      lng: art.location.coordinates[0]
+    };
+    const pin = new google.maps.Marker({
+      position: center,
+      map: map,
+      title: art.artName
+    });
+    markers.push(pin);
+  });
 }
-
-startMap();
+getArt();*/
+}
 
 </script>
 

@@ -2,28 +2,6 @@ const Art = require('./models/art.js');
 
 module.exports = function(app, passport) {
 
-// normal routes ===============================================================
-
-    // show the home page (will also have our login links)
-    app.get('/', function(req, res) {
-        res.render('index.hbs');
-    });
-
-    // PROFILE SECTION =========================
-    app.get('/profile', isLoggedIn, function(req, res) {
-        Art.find().then(artFromDb=>{
-            res.render('profile.hbs', {
-                user : req.user,
-                artInHBS : artFromDb
-            });
-        });
-    });
-
-    // LOGOUT ==============================
-    app.get('/logout', function(req, res) {
-        req.logout();
-        res.redirect('/');
-    });
 
 //===================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================

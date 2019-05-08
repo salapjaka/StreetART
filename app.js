@@ -25,6 +25,10 @@ var path = require('path');
 
 hbs.registerPartial("artList", fs.readFileSync(__dirname + '/views/art.hbs', 'utf8'));
 
+hbs.registerHelper('json', function(context){
+    return JSON.stringify(context)
+})
+
 // configuration ===============================================================
 mongoose.connect(configDB.url); // connect to our database
 

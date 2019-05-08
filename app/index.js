@@ -5,6 +5,32 @@ const uploadCloud = require('../config/cloudinary')
 
 module.exports = function(app, passport) {
 
+// normal routes ===============================================================
+
+    // show the home page (will also have our login links)
+   app.get('/', function(req, res) {
+      Art.find().then(arts=>{
+        res.render('index.hbs', { arts });
+      }).catch(err=>console.error(err))
+  });
+
+  // PROFILE SECTION =========================
+  app.get('/profile', isLoggedIn, function(req, res) {
+      Art.find().then(artFromDb=>{
+          res.render('profile.hbs', {
+              user : req.user,
+              artInHBS : artFromDb
+          });
+      });
+  });
+
+  // LOGOUT ==============================
+  app.get('/logout', function(req, res) {
+      req.logout();
+      res.redirect('/');
+  });
+
+
   app.get('/art', (req, res, next) => {
     Art.find().then(artFromDb=>{
       res.render('art', {artInHBS : artFromDb})
@@ -19,9 +45,9 @@ module.exports = function(app, passport) {
   app.post('/add', uploadCloud.single('photo'), (req, res, next) => {
      console.log(req.file, req.body, '$$%%$%%')
      
-    const {artName, location, artistName, dateTaken} = req.body;
-    
-    const newArt = new Art({artName, photoPath:req.file.url, location, artistName, dateTaken})
+    const {artName, artistName, dateTaken,  latitude, longitude} = req.body;
+    //let location = { latitude: req.body.latitude, longitude: req.body.longitude } 
+    const newArt = new Art({artName, photoPath:req.file.url, latitude,longitude, artistName, dateTaken})
     newArt.save() 
     .then((art) => {
       res.redirect('/profile')
@@ -117,7 +143,28 @@ module.exports = function(app, passport) {
       }
     });
   });
-  
+
+  // app.post('/', (req, res, next) => {
+
+  //   // add the location object
+  //     let location = {
+  //     type: 'Point',
+  //     coordinates: [req.body.longitude, req.body.latitude]
+  //     };
+      
+  //     const newArt = new Art({
+  //     name:        req.body.artName,
+  //     location:    location
+  //     });
+    
+  //     newArt.save((error) => {
+  //     if (error) { 
+  //       next(error); 
+  //     } else { 
+  //       res.redirect('profile');
+  //     }
+  //     })
+  //   });
   }
 
 // route middleware to ensure user is logged in

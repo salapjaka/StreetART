@@ -5,14 +5,16 @@ const Schema = mongoose.Schema
 const ArtSchema = new Schema({
   artName:                  String,
   photoPath:                String,
-
-  location:   {type: { type:  String }, 
-              coordinates:    [Number], 
-              country:        String, 
-              city:           String,
-              street:         String,
-              postalcode:     Number,
-},
+  //location: Object, 
+  latitude: Number,
+  longitude: Number,
+//   location:   {type: { type:  String }, 
+//               coordinates:    [Number], 
+//               country:        String, 
+//               city:           String,
+//               street:         String,
+//               postalcode:     Number,
+// },
               
  
   artistName: {firstName:   String,
@@ -22,7 +24,7 @@ const ArtSchema = new Schema({
   
   dateTaken:                Date         
 })
-ArtSchema.index({ location: '2dsphere' });
+// ArtSchema.index({ location: '2dsphere' });
 
 const Art = mongoose.model('art', ArtSchema)
 
