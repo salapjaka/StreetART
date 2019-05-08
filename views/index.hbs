@@ -1,8 +1,8 @@
 
-     <div>
+     <div class = "nav justify-content">
         <p>Login or Signup:</p>
 
-        <a href="/login" class="btn btn-default"> Login</a>
+        <a href="/login" class="btn btn-default "> Login</a>
         <a href="/signup" class="btn btn-default"> Signup</a>
         <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
         {{!-- <a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter</a>
@@ -41,51 +41,64 @@ window.onload = () => {
     lat: ironhackMiami.lat,
     lng: ironhackMiami.lng
   }; 
-
   const markers = []
   arts.forEach(art=>{
 
     //var myLatLng = {lat: -25.363, lng: 131.044};
     var myLatLng = {lat: art.latitude, lng: art.longitude }
+    
+    {{!-- var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/'; --}}
+    var contentString = `
+    <div id="content">
+      <img style="width: 100px" src="${art.photoPath}" /><br>
+      ${art.artName} by 
+      ${art.artistName.nickName}
+    </div>
+    `;
 
+    var infowindow = new google.maps.InfoWindow({
+    content: contentString
+});
     let marker = new google.maps.Marker({
           position: myLatLng,
           map: map,
-          title: 'Hello World!'
+          title: 'click me!',
     });
-    markers.push(marker)
+    
+    marker.addListener('click', function() {
+    infowindow.open(map, marker);
 })
 console.log(markers)
-
-
-
-
-
- /* function getArt() {
-  axios.get("/api")
-   .then( res => {
-     placeArt(res.data.art);
-   })
-   .catch(error => {
-     console.log(error);
-   })
- }
- function placeArt(art){
-  art.forEach(function(art){
-    const center = {
-      lat: art.location.coordinates[1],
-      lng: art.location.coordinates[0]
-    };
-    const pin = new google.maps.Marker({
-      position: center,
-      map: map,
-      title: art.artName
-    });
-    markers.push(pin);
   });
-}
-getArt();*/
 }
 
 </script>
 
+{{!-- 
+  const map = new google.maps.Map(
+    document.getElementById('map'),
+    {
+      zoom: 5,
+      center: ironhackMiami
+    });
+
+ let center = {
+    lat: ironhackMiami.lat,
+    lng: ironhackMiami.lng
+  }; 
+  const markers = []
+  arts.forEach(art=>{
+
+    //var myLatLng = {lat: -25.363, lng: 131.044};
+    var myLatLng = {lat: art.latitude, lng: art.longitude }
+    var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+    
+    let marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          icon: iconBase + 'parking_lot_maps.png',
+          
+          title: 'Hello World!'
+    });
+    markers.push(marker)
+}) --}}
