@@ -16,7 +16,7 @@ module.exports = function(app, passport) {
 
   // PROFILE SECTION =========================
   app.get('/profile', isLoggedIn, function(req, res) {
-      Art.find().then(artFromDb=>{
+      Art.find({postedBy: req.user._id}).then(artFromDb=>{
           res.render('profile.hbs', {
               user : req.user,
               artInHBS : artFromDb
@@ -47,7 +47,15 @@ module.exports = function(app, passport) {
      
     const {artName, artistName, dateTaken,  latitude, longitude} = req.body;
     //let location = { latitude: req.body.latitude, longitude: req.body.longitude } 
-    const newArt = new Art({artName, photoPath:req.file.url, latitude,longitude, artistName, dateTaken})
+    const newArt = new Art({
+        artName, 
+        photoPath:req.file.url, 
+        latitude,
+        longitude, 
+        artistName, 
+        dateTaken,
+        postedBy: req.user._id
+      })
     newArt.save() 
     .then((art) => {
       res.redirect('/profile')

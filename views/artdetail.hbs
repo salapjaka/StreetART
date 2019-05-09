@@ -1,8 +1,8 @@
-artdetail page
+<div class='text-center'>{{artInHBS.artName}}</div><br>
 <div><img src="{{artInHBS.photoPath}}" />
 </div><br>
 <div>
-{{artInHBS.artName}}<br>
+
 {{artInHBS.artistName.firstName}}<br>
 {{artInHBS.artistName.lastName}}<br>
 {{artInHBS.artistName.nickName}}<br>
@@ -11,6 +11,7 @@ artdetail page
 {{artInHBS.location.postalcode}}
 {{artInHBS.location.street}}<br>
 {{artInHBS.dateTaken}}
+{{artInHBS.postedBy}}
 </div>
 
 <a href = "/profile">Back</a>

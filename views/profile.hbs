@@ -1,39 +1,124 @@
-
-
-<div class="page-header text-right">
-    <h3>Welcome to your walls</h3>
-    <!-- LOCAL INFORMATION -->
-            {{#if user.local.email }}
-                {{ user.local.email }}<br>
-                
-                {{!-- <a href="/unlink/local" class="btn btn-default">Unlink</a> --}}
-            {{else}}
-                <a href="/connect/local" class="btn btn-default">Connect Local</a>
-            {{/if}}
-    <!-- FACEBOOK INFORMATION -->
-            <!-- check if the user has this token (is the user authenticated with this social account) -->
-            {{#if user.facebook.token }}
-                <p>
-                    {{!-- <strong>email</strong>: {{ user.facebook.email }}<br> --}}
-                    <strong>name</strong>: {{ user.facebook.name }}<br>
-                </p>
-                <a href="/unlink/facebook" class="btn btn-primary">Unlink Facebook</a>
-            {{else}}
-                <a href="/connect/facebook" class="btn btn-primary">Connect Facebook</a>
-            {{/if}}
-    <div>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+<div class="header-container">
+    <div class="welcome">
+        <h1>Welcome to your walls, </h1>
+        <!-- LOCAL INFORMATION -->
+        {{#if user.local.email }}
+        <h2>{{ user.local.email }}</h2>
     </div>
+    <br>
 
+    {{!-- <a href="/unlink/local" class="btn btn-default">Unlink</a> --}}
+    {{else}}
+    <a href="/connect/local" class="btn">Connect Local</a>
+    {{/if}}
+    <!-- FACEBOOK INFORMATION -->
+    <!-- check if the user has this token (is the user authenticated with this social account) -->
+    {{#if user.facebook.token }}
+    <div class="float fixed"
+       
+            {{!-- <strong>email</strong>: {{ user.facebook.email }}<br> --}}
+            <strong>facebook user connected</strong>: {{ user.facebook.name }}
+        
+        <br>
+        <a href="/unlink/facebook" class="btn">Unlink Facebook</a>
+        {{else}}
+        <a href="/connect/facebook" class="btn">Connect Facebook</a>
+        {{/if}}
+       
+            <a href="/logout" class="btn">Logout</a>
+            <a href="./add" class="btn">Add New</a>
+        </div>
+        
+
+    </div>
 </div>
 
-<h1> My Walls </h1>
-<!--<a href="./art">All my art</a>-->
+    <!--<a href="./art">All my art</a>-->
+<ul id="arts">
 
-{{>artList artInHBS=artInHBS }}
+    {{#each artInHBS }}
+    <li class="columns">
+    {{!-- <img width="200px" src="{{this.photoPath}}" alt=""><br> --}}
+    <div style="background-image:url({{this.photoPath}}"></div>
+    <span>
+
+    <a href="./art/{{_id}}">Details</a>
+    <a href="./delete?art_id={{this._id}}">Delete</a>
+    <a href="./edit?art_id={{this._id}}">Edit</a>
+
+    </span>
+    </li>
+    {{else}}
+    <p>There are no walls yet! :(</p>
+    
+    {{/each}}
+</ul>
+
+<div id="map-2"></div>
+
+<script>
+ 
+  let arts = JSON.parse('{{{json artInHBS}}}')
+   console.log(arts) 
+  window.onload = () => {
+    console.log('we need markers')
+
+    const ironhackMiami = {
+      lat: 25.765787699999997,
+      lng: -80.19577989999999
+    };
+
+    const map = new google.maps.Map(
+      document.getElementById('map-2'),
+      {
+        zoom: 5,
+        center: ironhackMiami
+      });
+
+    let center = {
+      lat: ironhackMiami.lat,
+      lng: ironhackMiami.lng
+    };
+
+
+    const markers = []
+    arts.forEach(art => {
+
+      //var myLatLng = {lat: -25.363, lng: 131.044};
+      var myLatLng = { lat: art.latitude, lng: art.longitude }
+      var contentString = `
+    <div id="content">
+      <img style="width: 100px" src="${art.photoPath}" /><br>
+      ${art.artName} by 
+      ${art.artistName.nickName}
+    </div>
+    `;
+
+
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+      let marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        title: 'click me!',
+      });
+
+      marker.addListener('click', function () {
+        infowindow.open(map, marker);
+      })
+      console.log(markers)
+    });
+
+
+    google.maps.event.addListener(map, 'click', function (event) {
+      alert("Latitude: " + event.latLng.lat() + " " + ", longitude: " + event.latLng.lng());
+    });
+  }
 
 
 
 
+</script>
 
-
+    {{!-- {{>artList artInHBS=artInHBS }} --}}

@@ -1,16 +1,17 @@
-add art
-<form action="/add" method ="post" enctype="multipart/form-data">
-<label for ="photoPath">Your Wall</label>
+<h1>ADD WALLS</h1>
+<button onclick="getLocation()">Get your current location coordinates</button>
+
+<form action="/add" method="post" enctype="multipart/form-data">
+  <label for="photoPath"></label>
   <input type="file" name="photo" value="{{art.photoPath}}">
-<br>
-<label>Location</label>
-  <input type="text" name="latitude" placeholder="latitude" >
-  <input type="text" name="longitude" placeholder="longitude">
-  <button onclick="position()">Get your current location coordinates</button>
-<br>
+  <br>
+  <label>Location</label>
+  <input type="text" id="lat" name="latitude" placeholder="latitude">
+  <input type="text" id="lng" name="longitude" placeholder="longitude">
+  <br>
   <label for="artName">Art Name: </label>
   <input type="text" name="artName" value="{{art.artName}}" />
-<br>
+  <br>
   {{!-- <label for="country">Country: </label>
   <input type="text" name="location[country]" value="{{art.location.country}}" />
 <br>
@@ -25,18 +26,73 @@ add art
   <input type="text" name="location[postalcode]" value="{{art.location.postalcode}}" />
   <br> --}}
 
-  
+
   <label for="firstName">Artist First Name: </label>
   <input type="text" name="artistName[firstName]" value="{{art.artistName.firstName}}" />
-<br>
+  <br>
   <label for="lastName">Artist Last Name:</label>
   <input type="text" name="artistName[lastName]" value="{{art.artistName.lastName}}" />
-<br>
+  <br>
   <label for="nickName">Artist Nick Name:</label>
   <input type="text" name="artistName[nickName]" value="{{art.artistName.nickName}}" />
-<br>
+  <br>
   <label for="dateTaken">Date Photo Taken:</label>
   <input type="text" name="dateTaken" value="{{art.dateTaken}}" />
-<br>
+  <br>
   <button type="submit">ADD</button>
 </form>
+
+
+
+<div id="map-3"></div>
+
+<script>
+   function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      alert("Geolocation is not supported by this browser.")
+    }
+  }
+
+  function showPosition(position) {
+
+      console.log(position)
+      document.querySelector("#lat").value = position.coords.latitude
+      document.querySelector("#lng").value = position.coords.longitude
+
+  }
+
+  
+  window.onload = () => {
+    console.log('we need markers')
+
+    const ironhackMiami = {
+      lat: 25.765787699999997,
+      lng: -80.19577989999999
+    };
+
+    const map = new google.maps.Map(
+      document.getElementById('map-3'),
+      {
+        zoom: 8,
+        center: ironhackMiami
+      });
+
+    let center = {
+      lat: ironhackMiami.lat,
+      lng: ironhackMiami.lng
+    };
+
+    google.maps.event.addListener(map, 'click', function (event) {
+      console.log("Latitude: " + event.latLng.lat() + " " + ", longitude: " + event.latLng.lng());
+      document.querySelector("#lat").value = event.latLng.lat()
+      document.querySelector("#lng").value = event.latLng.lng()
+    });
+  }
+
+
+
+
+</script>
+</script>

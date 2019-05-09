@@ -1,18 +1,16 @@
-art list
+{{!-- <ul id="arts">
 
-
-<ul>
-{{#each artInHBS }}
-<img src="{{this.photoPath}}" alt=""><br>
-
-<a  href = "./art/{{_id}}">Details</a><br>
-<a  href="./delete?art_id={{this._id}}">Delete</a><br>
-<a  href="./edit?art_id={{this._id}}">Edit</a><br>
-
-{{else}}
+    {{#each artInHBS }}
+    <li class="columns">
+    <img width="200px" src="{{this.photoPath}}" alt=""><br>
+    <a href="./art/{{_id}}">Details</a><br>
+    <a href="./delete?art_id={{this._id}}">Delete</a><br>
+    <a href="./edit?art_id={{this._id}}">Edit</a><br>
+    </li>
+    {{else}}
     <p>There are no walls yet! :(</p>
-{{/each}}
-
+    
+    {{/each}}
 </ul>
 
-<a  href="./add" class="add-button">Add New</a>
+<a href="./add" class="add-button">Add New</a> --}}

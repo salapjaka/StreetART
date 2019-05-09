@@ -22,7 +22,8 @@ const ArtSchema = new Schema({
               nickName:     String
               },
   
-  dateTaken:                Date         
+  dateTaken:                Date,
+  postedBy: Schema.Types.ObjectId         
 })
 // ArtSchema.index({ location: '2dsphere' });
 
