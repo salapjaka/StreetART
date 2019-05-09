@@ -23,5 +23,22 @@
     "passport-google-oauth": "~1.0.0",
     "passport-local": "~1.0.0",
     "passport-twitter": "~1.0.4"
-  }
+  },
+  "description": "Code for the entire scotch.io tutorial series: Complete Guide to Node Authentication",
+  "version": "1.0.0",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salapjaka/StreetART.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/salapjaka/StreetART/issues"
+  },
+  "homepage": "https://github.com/salapjaka/StreetART#readme"
 }

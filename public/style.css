@@ -27,3 +27,7 @@ body h2 {
     left: 50%;
     transform: translate(-50%, -50%);
   }
+  .carousel {
+    width: 640px;
+    height: 360px;
+  }
