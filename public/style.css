@@ -1,0 +1,29 @@
+.background {
+  height: 800px;
+  width: 100%;
+  background-image: url("./images/yellowSmile.jpg");
+  background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center; 
+} 
+
+#map {
+  height: 500px;
+  width: 100%;
+ }
+
+body h2 {
+  text-align: center;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.lower {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
