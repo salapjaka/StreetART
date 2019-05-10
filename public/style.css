@@ -92,7 +92,7 @@ body {
 .centered {
   color: whitesmoke;
   text-shadow: 5px 10px 2px rgba(0,0,0,.9);
-  font-size: 60px;
+  font-size: 80px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -132,7 +132,7 @@ ul#arts{
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-
+  
 }
 
 #arts li span{
@@ -141,6 +141,7 @@ ul#arts{
   vertical-align: center;
   margin-top: 15px;
   margin-bottom: 15px;
+  z-index: -1;
 }
 #arts li a {
   margin: 0;
@@ -237,5 +238,3 @@ label {
   height:250px;
 }
 
-#map {
-}

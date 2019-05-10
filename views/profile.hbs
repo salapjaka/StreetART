@@ -1,3 +1,8 @@
+<div id="navbar" class="nav justify-content">
+  <a href="/" class="btn">Go back home</a>
+</div>
+  
+</div>
 <div class="header-container">
   <span>
     <div class="welcome">
@@ -57,7 +62,15 @@
 <div id="map-2"></div>
 
 <script>
- 
+  window.onscroll = function () { scrollFunction() };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("navbar").style.top = "0";
+    } else {
+      document.getElementById("navbar").style.top = "-50px";
+    }
+  }
   let arts = JSON.parse('{{{json artInHBS}}}')
    console.log(arts) 
   window.onload = () => {
