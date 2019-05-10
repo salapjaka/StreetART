@@ -1,11 +1,11 @@
 <div class="header-container">
+  <span>
     <div class="welcome">
         <h1>Welcome to your walls, </h1>
         <!-- LOCAL INFORMATION -->
         {{#if user.local.email }}
         <h2>{{ user.local.email }}</h2>
     </div>
-    <br>
 
     {{!-- <a href="/unlink/local" class="btn btn-default">Unlink</a> --}}
     {{else}}
@@ -29,7 +29,7 @@
             <a href="./add" class="btn">Add New</a>
         </div>
         
-
+</span>
     </div>
 </div>
 

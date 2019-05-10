@@ -61,8 +61,15 @@ body {
 .header-container{
   position: fixed;
   height: 200px;
-  margin-left: 25%;
-  margin-right: 25%;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  
+}
+.welcome {
+  text-align: center;
+  display: table-footer-group
 }
 .centered {
   color: whitesmoke;
@@ -82,10 +89,7 @@ body {
   left: 50%;    
   transform: translate(-50%, -50%);
   }
-.welcome {
-  text-align: center;
-  display: table-footer-group
-}
+
 
 
 
