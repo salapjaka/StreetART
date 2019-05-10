@@ -48,11 +48,11 @@ body {
 }
 
 #map {
-  height: 500px;
+  height: 700px;
   width: 100%;
  }
  #map-2 {
-  height: 500px;
+  height: 700px;
   width: 100%;
   position: fixed;
   display: flex;
@@ -61,11 +61,11 @@ body {
  }
 
  #map-3 {
-  height: 500px;
+  height: 700px;
   width: 100%;
  }
  #map-4 {
-  height: 500px;
+  height: 700px;
   width: 100%;
  }
  
@@ -209,9 +209,33 @@ label {
   position:relative;
   top:-25px;
   left:-35px;
-  width:500px;
+  width:800px;
   height:auto;
   display:block;
   z-index:999;
+}
+
+.thumbnail:hover img {
+  border: 1px solid black;
+  width:800px;
+
 } */
 
+
+.thumbnail {
+  width:150px;
+  height:150px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center;
+  transition: all .2s;
+
+}
+
+.thumbnail:hover {
+  width:500px;
+  height:250px;
+}
+
+#map {
+}

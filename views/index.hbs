@@ -56,12 +56,12 @@
 
     const markers = []
     arts.forEach(art => {
+ //     <img src="${art.photoPath}" /><br>
 
       //var myLatLng = {lat: -25.363, lng: 131.044};
       var myLatLng = { lat: art.latitude, lng: art.longitude }
       var contentString = `
-    <div class = "thumbnail" id="content">
-      <img  style="width: 100px" src="${art.photoPath}" /><br>
+    <div class = "thumbnail" id="content" style="background-image: url(${art.photoPath}) ">
       ${art.artName} by 
       ${art.artistName.nickName}
     </div>
@@ -81,24 +81,24 @@
         infowindow.open(map, marker);  
   })
       console.log(markers)
-    {{!-- marker.addListener('click', function() {
-    map.setZoom(15);
-    map.setCenter(marker.getPosition());
-  }); --}}
+    let firstTime = true
+    marker.addListener('click', function() {
+      if(firstTime){
+        map.setZoom(15);
+        firstTime = false;
+      } else {
+        map.setZoom(5);
+        firstTime = true;
+      }
+      map.setCenter(marker.getPosition());
+    });
   
 });
 
     google.maps.event.addListener(map, 'click', function (event) {
       alert("Latitude: " + event.latLng.lat() + " " + ", longitude: " + event.latLng.lng());
     });
-    
-
- 
-    
   }
-
-
-
 
 </script>
 
