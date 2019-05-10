@@ -47,15 +47,15 @@ module.exports = function(app, passport) {
      
     const {artName, artistName, dateTaken,  latitude, longitude} = req.body;
     //let location = { latitude: req.body.latitude, longitude: req.body.longitude } 
-    console.log({
-      artName, 
-      photoPath:req.file.url, 
-      latitude,
-      longitude, 
-      artistName, 
-      dateTaken,
-      postedBy: req.user._id
-    })
+    // console.log({
+    //   artName, 
+    //   photoPath:req.file.url, 
+    //   latitude,
+    //   longitude, 
+    //   artistName, 
+    //   dateTaken,
+    //   postedBy: req.user._id
+    // })
     const newArt = new Art({
         artName, 
         photoPath:req.file.url, 
