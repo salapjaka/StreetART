@@ -1,6 +1,12 @@
-<h1>ADD WALLS</h1>
-<button onclick="getLocation()">Get your current location coordinates</button>
+<div id="navbar" class="nav justify-content">
 
+  <a href="/profile" class="btn">Go back to your Walls</a>
+  <a href="/logout" class="btn">Logout</a>
+</div>
+<div class = 'add-walls-h1'><h1>ADD WALLS</h1></div>
+<div class = 'add-walls-h1'><button onclick="getLocation()">Get your current location coordinates</button></div>
+</div>
+<div class = 'add-walls'>
 <form action="/add" method="post" enctype="multipart/form-data">
   <label for="photoPath"></label>
   <input type="file" name="photo" value="{{art.photoPath}}">
@@ -10,6 +16,7 @@
   <input type="text" id="lng" name="longitude" placeholder="longitude">
   <br>
   <label for="artName">Art Name: </label>
+  
   <input type="text" name="artName" value="{{art.artName}}" />
   <br>
   {{!-- <label for="country">Country: </label>
@@ -39,14 +46,24 @@
   <label for="dateTaken">Date Photo Taken:</label>
   <input type="text" name="dateTaken" value="{{art.dateTaken}}" />
   <br>
-  <button type="submit">ADD</button>
+  <div class='add-walls-h1'><button  type="submit">ADD</button></div>
 </form>
 
 
-
+</div>
 <div id="map-3"></div>
 
 <script>
+
+  window.onscroll = function () { scrollFunction() };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("navbar").style.top = "0";
+    } else {
+      document.getElementById("navbar").style.top = "-50px";
+    }
+  }
    function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);

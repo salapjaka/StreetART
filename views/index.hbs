@@ -1,5 +1,4 @@
 <div id="navbar" class="nav justify-content">
-  Login or Signup:
 
   <a href="/login" class="btn"> Login</a>
   <a href="/signup" class="btn"> Signup</a>
@@ -61,8 +60,8 @@
       //var myLatLng = {lat: -25.363, lng: 131.044};
       var myLatLng = { lat: art.latitude, lng: art.longitude }
       var contentString = `
-    <div id="content">
-      <img style="width: 100px" src="${art.photoPath}" /><br>
+    <div class = "thumbnail" id="content">
+      <img  style="width: 100px" src="${art.photoPath}" /><br>
       ${art.artName} by 
       ${art.artistName.nickName}
     </div>
@@ -78,16 +77,24 @@
         title: 'click me!',
       });
 
-      marker.addListener('click', function () {
-        infowindow.open(map, marker);
-      })
+    marker.addListener('click', function () {
+        infowindow.open(map, marker);  
+  })
       console.log(markers)
-    });
-
+    {{!-- marker.addListener('click', function() {
+    map.setZoom(15);
+    map.setCenter(marker.getPosition());
+  }); --}}
+  
+});
 
     google.maps.event.addListener(map, 'click', function (event) {
       alert("Latitude: " + event.latLng.lat() + " " + ", longitude: " + event.latLng.lng());
     });
+    
+
+ 
+    
   }
 
 

@@ -14,7 +14,7 @@
     <!-- FACEBOOK INFORMATION -->
     <!-- check if the user has this token (is the user authenticated with this social account) -->
     {{#if user.facebook.token }}
-    <div class="float fixed"
+    <div class="float fixed profile-links"
        
             {{!-- <strong>email</strong>: {{ user.facebook.email }}<br> --}}
             <strong>facebook user connected</strong>: {{ user.facebook.name }}
@@ -42,9 +42,9 @@
     <div style="background-image:url({{this.photoPath}}"></div>
     <span>
 
-    <a href="./art/{{_id}}">Details</a>
-    <a href="./delete?art_id={{this._id}}">Delete</a>
-    <a href="./edit?art_id={{this._id}}">Edit</a>
+    <a href="./art/{{_id}}" class="btn"> Details</a>
+    <a href="./delete?art_id={{this._id}}" class="btn">Delete</a>
+    <a href="./edit?art_id={{this._id}}" class="btn">Edit</a>
 
     </span>
     </li>

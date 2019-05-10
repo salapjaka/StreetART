@@ -1,17 +1,37 @@
-<div class='text-center'>{{artInHBS.artName}}</div><br>
-<div><img src="{{artInHBS.photoPath}}" />
-</div><br>
-<div>
+<div id="navbar" class="nav justify-content">
 
+  <a href="/profile" class="btn">Go back to your Walls</a>
+  <a href="/logout" class="btn">Logout</a>
+</div>
+
+<div class='text-center'><h1>{{artInHBS.artName}}</h1></div><br>
+<div class = "add-walls art-detail">
 {{artInHBS.artistName.firstName}}<br>
 {{artInHBS.artistName.lastName}}<br>
 {{artInHBS.artistName.nickName}}<br>
-{{artInHBS.location.country}}<br>
+{{!-- {{artInHBS.location.country}}<br>
 {{artInHBS.location.city}}<br>
 {{artInHBS.location.postalcode}}
-{{artInHBS.location.street}}<br>
+{{artInHBS.location.street}}<br> --}}
 {{artInHBS.dateTaken}}
 {{artInHBS.postedBy}}
 </div>
+<div><img width = '100%'src="{{artInHBS.photoPath}}" />
+</div>
+<br>
 
-<a href = "/profile">Back</a>
+<script>
+window.onscroll = function () { scrollFunction() };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("navbar").style.top = "0";
+    } else {
+      document.getElementById("navbar").style.top = "-50px";
+    }
+  }
+
+</script>
+
+
+

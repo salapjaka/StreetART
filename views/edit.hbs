@@ -1,20 +1,26 @@
+<div id="navbar" class="nav justify-content">
 
+  <a href="/profile" class="btn">Go back to your Walls</a>
+  <a href="/logout" class="btn">Logout</a>
+</div>
 
-
+<div class = 'add-walls-h1'><h1>change is good - fire up!  
+</h1></div>
+<div class = 'add-walls-h1'><button onclick="getLocation()">Get your current location coordinates</button></div>
 <form action="./edit?art_id={{art._id}}" method="post" enctype="multipart/form-data">
-<label for ="photo">Please make your changes</label>
-  <div class="tile"><img width ="100%" onclick = "function(){
+<label for ="photo"></label>
+  {{!-- <div class="tile"><img width ="100%" onclick = "function(){
     console.log('hi')
     document.getElementById('picture').click
-  }" src="{{art.photoPath}}" > </div>
-  {{!-- <div class="tile" data-scale="2.4"><img width ="100%" src="{{art.photoPath}}" onclick="window.open(this.src)"  > </div> --}}
+  }" src="{{art.photoPath}}" > </div> --}}
+  <div class="tile" data-scale="2.4"><img width ="100%" src="{{art.photoPath}}" onclick="window.open(this.src)"  > </div>
   {{!-- <input type="file" id="picture" name="photo" value="{{art.photoPath}}"> --}}
 
   <div class = "edit-form">
     <label for="artName">Art Name: </label>
   <input type="text" name="artName" value="{{art.artName}}" />
 <br>
- <label>Location</label>
+  <label>Location</label>
   <input type="text" id="lat" name="latitude" placeholder="latitude">
   <input type="text" id="lng" name="longitude" placeholder="longitude">
   <br>
@@ -48,11 +54,20 @@
   </div>
 </form>
 
+
 <div id="map-4"></div>
 
 
 <script>
+  window.onscroll = function () { scrollFunction() };
 
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("navbar").style.top = "0";
+    } else {
+      document.getElementById("navbar").style.top = "-50px";
+    }
+  }
   function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
