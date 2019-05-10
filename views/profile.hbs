@@ -89,7 +89,9 @@
       var contentString = `
     <div id="content">
       <img style="width: 100px" src="${art.photoPath}" /><br>
-      ${art.artName} by 
+      ${art.artName}<br>
+      ${art.artistName.firstName}
+      ${art.artistName.lastName}<br>
       ${art.artistName.nickName}
     </div>
     `;

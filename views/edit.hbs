@@ -1,21 +1,23 @@
-edit pageadsfadsfa
-{{_id}}
+
+
 
 <form action="./edit?art_id={{art._id}}" method="post" enctype="multipart/form-data">
-<label for ="photo">Your Wall</label>
-  <img onclick = "function(){
+<label for ="photo">Please make your changes</label>
+  <div class="tile"><img width ="100%" onclick = "function(){
     console.log('hi')
     document.getElementById('picture').click
-  }" src="{{art.photoPath}}" /> 
+  }" src="{{art.photoPath}}" > </div>
+  {{!-- <div class="tile" data-scale="2.4"><img width ="100%" src="{{art.photoPath}}" onclick="window.open(this.src)"  > </div> --}}
   {{!-- <input type="file" id="picture" name="photo" value="{{art.photoPath}}"> --}}
-<br>
-  <label for="artName">Art Name: </label>
+
+  <div class = "edit-form">
+    <label for="artName">Art Name: </label>
   <input type="text" name="artName" value="{{art.artName}}" />
 <br>
-<label>Location</label>
-  <input type="text" name="latitude" placeholder="latitude" >
-  <input type="text" name="longitude" placeholder="longitude">
-  
+ <label>Location</label>
+  <input type="text" id="lat" name="latitude" placeholder="latitude">
+  <input type="text" id="lng" name="longitude" placeholder="longitude">
+  <br>
   {{!-- <label for="country">Country: </label>
   <input type="text" name="location[country]" value="{{art.location.country}}" />
 <br>
@@ -43,4 +45,55 @@ edit pageadsfadsfa
   <input type="text" name="dateTaken" value="{{art.dateTaken}}" />
 <br>
   <button type="submit">UPDATE</button>
+  </div>
 </form>
+
+<div id="map-4"></div>
+
+
+<script>
+
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      alert("Geolocation is not supported by this browser.")
+    }
+  }
+
+  function showPosition(position) {
+
+      console.log(position)
+      document.querySelector("#lat").value = position.coords.latitude
+      document.querySelector("#lng").value = position.coords.longitude
+
+  }
+
+  
+  window.onload = () => {
+    console.log('we need markers')
+
+    const ironhackMiami = {
+      lat: 25.765787699999997,
+      lng: -80.19577989999999
+    };
+
+    const map = new google.maps.Map(
+      document.getElementById('map-4'),
+      {
+        zoom: 8,
+        center: ironhackMiami
+      });
+
+    let center = {
+      lat: ironhackMiami.lat,
+      lng: ironhackMiami.lng
+    };
+
+    google.maps.event.addListener(map, 'click', function (event) {
+      console.log("Latitude: " + event.latLng.lat() + " " + ", longitude: " + event.latLng.lng());
+      document.querySelector("#lat").value = event.latLng.lat()
+      document.querySelector("#lng").value = event.latLng.lng()
+    });
+  }
+</script>
