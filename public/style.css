@@ -13,35 +13,37 @@
  
 } 
 body {
-  font-family: 'Amatic SC', cursive;
+  /* font-family: 'Amatic SC', cursive; */
   font-weight:normal;
   font-style:normal;
+  font-size: 16px;
 }
-/* #navbar {
-  background-color: #333;
-  position: fixed;
-  top: -50px;
+
+#navbar {
+  color: #f2f2f2;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
   width: 100%;
-  display: block;
-  transition: top 0.9s;
-  height: 50px;
-  z-index: 1;
+  padding: 1em;
+  font-size: 1.5em;
 }
 
 #navbar a {
-  float: left;
-  display: block;
   color: #f2f2f2;
-  text-align: center;
-  padding: 12px;
   text-decoration: none;
-  font-size: 17px;
-} */
+  padding: 0.1em;
+}  
+
+.logo {
+  font: Bebas Neue;
+}
 #content {
-  font-family: 'Amatic SC', cursive;
+  /* font-family: 'Amatic SC', cursive; */
   font-weight:normal;
   font-style:normal;
 }
+
 #navbar a:hover {
   background-color: #ddd;
   color: black;
@@ -57,6 +59,43 @@ body {
   width: 45%;
   margin: 1em;
  }
+ @media (max-width:1024px) {
+  .map-right {
+    font-size: 0.9em;
+  }
+}
+@media (max-width:768px) {
+  .map-right {
+    font-size: 0.85em;
+  }
+}
+@media (max-width:688px) {
+  .map-right {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width:414px) {
+  .map-right {
+    font-size: 0.64em;
+  }
+}
+@media (max-width:375px) {
+  .map-right {
+    font-size: 0.62em;
+  }
+}
+@media (max-width:360px) {
+  .map-right {
+    font-size: 0.6em;
+  }
+}
+@media (max-width:320px) {
+  .map-right {
+    font-size: 0.55em;
+  }
+}
+
  .map-container {
    display: flex;
  }
@@ -103,15 +142,23 @@ body {
   display: table-footer-group;
 }
 .centered {
-  color: whitesmoke;
-  text-shadow: 5px 10px 2px rgba(0,0,0,.9);
-  font-size: 80px;
+  color: white;
+  font-family: "Times New Roman";
+  /* text-shadow: 5px 10px 2px rgba(0,0,0,.9); */
+  font-size: 1.5em;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
 }
-.lower {    
+
+/* @media (max-width:1987px) {
+  .centered {
+    font-size: 30px;
+  }
+} */
+/* .lower {    
   color: whitesmoke;    
   text-shadow: 2px 2px 2px rgba(0,0,0,.8);    
   font-size: 40px;    
@@ -119,7 +166,7 @@ body {
   top: 80%;    
   left: 50%;    
   transform: translate(-50%, -50%);
-  }
+  } */
 
 ul#arts{
   display: inline-flex;

@@ -1,39 +1,43 @@
-<div id="navbar" class="nav justify-content">
-
-  <a href="/login" class="btn"> Login</a>
-  <a href="/signup" class="btn"> Signup</a>
-  <a href="/auth/facebook" class="btn"><span class=""></span> Facebook</a>
+<div id="navbar" class="justify-content">
+      <div class = 'logo'>WALLZ</div>
+      <div>
+        <a href="/login"> LOGIN</a>
+        <a href="/signup"> SIGNUP</a>
+        {{!-- <a href="/auth/facebook" class=""><span class=""></span> Facebook</a> --}}
+      </div>
   {{!-- <a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter</a>
         <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a> --}}
 </div>
 <div style="padding:0 0 20px;font-size:30px">
   <div class="background container">
-    <div class="centered">WALLZ</div>
-    <div class="lower">
+    <div class="centered">Murals. Graffiti. Wall art.</div>
+    {{!-- <div class="lower">
       <h2>Discover the world of street art</h2>
-    </div>
+    </div> --}}
   </div>
   
         <div class = 'map-container'>
           <div id="map"></div>
-          <div class = "map-right"> Hello,
+            <div class = "map-right"> 
+              Hello,
 
-<p>We started this project in hopes of mapping and digitally preserving every wall artwork in the world. </p>
+              <p>We started this project in hopes of mapping and digitally preserving every wall artwork in the world. </p>
 
-There are currently #### tagged wallz.
+              <p>There are currently #### tagged wallz.</p>
 
-Add your own.
+              <p>Add your own.</p>
 
-Sincerely,
-Wallz Team</div>
+              <p>Sincerely,</p>
+              <p>Wallz Team</p>
+            </div>
+          </div>
         </div>
-</div>
 <div >
 
 </div>
 <div class="fb-share-button" data-href="https://wallz.herokuapp.com/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwallz.herokuapp.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
 <script>
-  window.onscroll = function () { scrollFunction() };
+  {{!-- window.onscroll = function () { scrollFunction() };
 
   function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -41,7 +45,7 @@ Wallz Team</div>
     } else {
       document.getElementById("navbar").style.top = "-50px";
     }
-  }
+  } --}}
 
   let arts = JSON.parse('{{{json arts}}}')
   console.log(arts)
@@ -107,9 +111,9 @@ Wallz Team</div>
   
 });
 
-    google.maps.event.addListener(map, 'click', function (event) {
+    {{!-- google.maps.event.addListener(map, 'click', function (event) {
       alert("Latitude: " + event.latLng.lat() + " " + ", longitude: " + event.latLng.lng());
-    });
+    }); --}}
   }
 
 </script>
