@@ -176,21 +176,20 @@ margin: 15px 0px 15px;
   margin: 15px 0px 15px;
   font-size: 15px;
 }
-.gray-font {
-  font-weight: lighter;
-}
+
 .login-link {
   color:#F60052;
   font-weight: normal;
 }
 .header-container {
-  position: fixed;
-  height: 200px;
+  /* position: fixed; */
+  /* height: 200px; */
   width:100%;
   display: flex;
   justify-content: center;
   align-items:center;
-  
+  font-size: 1.6em;
+  padding: 1em;
 }
 .header-container a {
   font-size: 2vh;
@@ -199,9 +198,24 @@ margin: 15px 0px 15px;
   background-color: #ddd;
   color: black;
 }
-.welcome {
+
+/* .welcome {
   text-align: center;
   display: table-footer-group;
+} */
+.signup-profile {
+background-color: #001333;
+color: white;
+width: 120px;
+height: 40px;
+/* border: none; */
+border-radius: 0.1em;
+margin: 15px 0px 15px;
+font-size: 15px;
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
 }
 .centered {
   color: white;
@@ -234,7 +248,7 @@ ul#arts{
   display: inline-flex;
   padding: 0;
   margin: 0;
-  margin-top: 200px;
+  /* margin-top: 200px; */
   margin-bottom: 0px;
   z-index: 1;
   position: relative;
@@ -326,24 +340,6 @@ label {
 .art-detail {
   font-size: 4vh;
 }
-
-
-/* .thumbnail:hover {
-  position:relative;
-  top:-25px;
-  left:-35px;
-  width:800px;
-  height:auto;
-  display:block;
-  z-index:999;
-}
-
-.thumbnail:hover img {
-  border: 1px solid black;
-  width:800px;
-
-} */
-
 
 .thumbnail {
   width:150px;
