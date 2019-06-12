@@ -1,28 +1,29 @@
+<div class = 'logo-signup'><a href="/">WALLZ</a></div>
+<div class="container-signup">
 
-<div class="container">
-<div class="col-sm-6 col-sm-offset-3">
+    <div class = 'signup-text'>Sign-Up</div>
 
-    <h1><span class="fa fa-sign-in"></span> Signup</h1>
-
-    <!-- LOGIN FORM -->
-    <form action="/signup" method="post">
+    <!-- SIGNUP FORM -->
+    <div>
+        <form action="/signup" method="post">
         <div class="form-group">
-            <label>User name</label>
-            <input type="text" class="form-control" name="email">
+           
+            <input type="text" class="signup" name="email" placeholder='Username'>
         </div>
         <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" name="password">
+        
+            <input type="password" class="signup" name="password" placeholder='Password'>
         </div>
 
-        <button type="submit" class="btn btn-warning btn-lg">Signup</button>
-    </form>
+        <button type="submit" class="signup-button">Sign up</button>
+        </form>
+    </div>
+    
 
-    <hr>
-
-    <p>Already have an account? <a href="/login">Login</a></p>
-    <p>Or go <a href="/">home</a>.</p>
+    <div class = 'text-muted'>Already have an account? <a class = 'login-link' href="/login">Log in</a></div>
+    
 
 </div>
+
 </div>
 
