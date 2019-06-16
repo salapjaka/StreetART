@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-
+const moment = require('moment');
 const Schema = mongoose.Schema
 
 const ArtSchema = new Schema({
@@ -22,10 +22,11 @@ const ArtSchema = new Schema({
               nickName:     String
               },
   
-  dateTaken:                Date,
+  dateTaken:               Date,
   postedBy: Schema.Types.ObjectId         
 })
 // ArtSchema.index({ location: '2dsphere' });
+
 
 const Art = mongoose.model('art', ArtSchema)
 

@@ -1,37 +1,31 @@
-<div id="navbar" class="nav justify-content">
-
-  <a href="/profile" class="btn">Go back to your Wallz</a>
-  <a href="/logout" class="btn">Logout</a>
+<div id="navbar-profile">
+        <div><a href="/">WALLZ</a></div>
+      <div>
+        <a href="/logout"> LOG OUT</a>
+        {{!-- <a href="/auth/facebook" class=""><span class=""></span> Facebook</a> --}}
+      </div>
+  {{!-- <a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter</a>
+        <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a> --}}
 </div>
 
 <div class='text-center'><h1>{{artInHBS.artName}}</h1></div><br>
-<div class = "add-walls art-detail">
-{{artInHBS.artistName.firstName}}<br>
-{{artInHBS.artistName.lastName}}<br>
-{{artInHBS.artistName.nickName}}<br>
+<div class='details-container'>
+<div class = 'details-info'>
+<div class='details-inline'><div><label class = 'labels'>Location: </label></div><div class='details-data'>{{artInHBS.longitude}} {{artInHBS.latitude}}</div></div>
+<div class='details-inline'><div><label class = 'labels'>Artist first name: </label></div><div class='details-data'>{{artInHBS.artistName.firstName}}</div></div>
+<div class='details-inline'><div><label class = 'labels'>Artist last name: </label></div><div class='details-data'>{{artInHBS.artistName.lastName}}</div></div>
+<div class='details-inline'><div><label class = 'labels'>Artwork title: </label></div><div class='details-data'>{{artInHBS.artistName.nickName}}</div></div>
 {{!-- {{artInHBS.location.country}}<br>
 {{artInHBS.location.city}}<br>
 {{artInHBS.location.postalcode}}
 {{artInHBS.location.street}}<br> --}}
-{{artInHBS.dateTaken}}
-{{artInHBS.postedBy}}
+<div class='details-inline'><div><label class = 'labels'>Date taken: </label></div><div class='details-data'>{{artInHBS.dateTaken}}</div></div>
+{{!-- {{artInHBS.postedBy}} --}}
 </div>
-<div><img width = '100%'src="{{artInHBS.photoPath}}" />
+<div class='details-image'><img src="{{artInHBS.photoPath}}" />
 </div>
-<br>
+</div>
 
-<script>
-window.onscroll = function () { scrollFunction() };
-
-  function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      document.getElementById("navbar").style.top = "0";
-    } else {
-      document.getElementById("navbar").style.top = "-50px";
-    }
-  }
-
-</script>
 
 
 
