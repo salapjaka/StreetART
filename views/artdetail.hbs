@@ -7,22 +7,23 @@
   {{!-- <a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter</a>
         <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a> --}}
 </div>
-
-<div class='text-center'><h1>{{artInHBS.artName}}</h1></div><br>
+<div class='image-in-container'>
+<div class='title-center'><p>{{artInHBS.artName}}</p></div>
 <div class='details-container'>
 <div class = 'details-info'>
-<div class='details-inline'><div><label class = 'labels'>Location: </label></div><div class='details-data'>{{artInHBS.longitude}} {{artInHBS.latitude}}</div></div>
-<div class='details-inline'><div><label class = 'labels'>Artist first name: </label></div><div class='details-data'>{{artInHBS.artistName.firstName}}</div></div>
-<div class='details-inline'><div><label class = 'labels'>Artist last name: </label></div><div class='details-data'>{{artInHBS.artistName.lastName}}</div></div>
-<div class='details-inline'><div><label class = 'labels'>Artwork title: </label></div><div class='details-data'>{{artInHBS.artistName.nickName}}</div></div>
+  
+<div class='details-inline'><div><label class = 'labels text-muted'>Location</label></div><div class='details-data'>{{artInHBS.latitude}} {{artInHBS.longitude}}</div></div>
+<div class='details-inline'><div><label class = 'labels text-muted'>Artist first name</label></div><div class='details-data'>{{artInHBS.artistName.firstName}}</div></div>
+<div class='details-inline'><div><label class = 'labels text-muted'>Artist last name</label></div><div class='details-data'>{{artInHBS.artistName.lastName}}</div></div>
+<div class='details-inline'><div><label class = 'labels text-muted'>Artwork title</label></div><div class='details-data'>{{artInHBS.artistName.nickName}}</div></div>
 {{!-- {{artInHBS.location.country}}<br>
 {{artInHBS.location.city}}<br>
 {{artInHBS.location.postalcode}}
 {{artInHBS.location.street}}<br> --}}
-<div class='details-inline'><div><label class = 'labels'>Date taken: </label></div><div class='details-data'>{{artInHBS.dateTaken}}</div></div>
+<div class='details-inline'><div><label class = 'labels text-muted'>Date taken</label></div><div class='details-data'>{{artInHBS.dateTaken}}</div></div>
 {{!-- {{artInHBS.postedBy}} --}}
 </div>
-<div class='details-image'><img src="{{artInHBS.photoPath}}" />
+<div class='details-image'><img src="{{artInHBS.photoPath}}" /></div>
 </div>
 </div>
 

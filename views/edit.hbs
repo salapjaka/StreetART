@@ -1,73 +1,78 @@
-<div id="navbar" class="nav justify-content">
-
-  <a href="/profile" class="btn">Go back to your Wallz</a>
-  <a href="/logout" class="btn">Logout</a>
+<div id="navbar-profile">
+        <div><a href="/">WALLZ</a></div>
+      <div>
+        <a href="/logout"> LOG OUT</a>
+        {{!-- <a href="/auth/facebook" class=""><span class=""></span> Facebook</a> --}}
+      </div>
+  {{!-- <a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter</a>
+        <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a> --}}
 </div>
 
-<div class = 'add-walls-h1'><h1>change is good - fire up!  
-</h1></div>
-<div class = 'add-walls-h1'><button onclick="getLocation()">Get your current location coordinates</button></div>
+<div class = 'title-center'>change is good - fire up!</div>
+
 <form action="./edit?art_id={{art._id}}" method="post" enctype="multipart/form-data">
-<label for ="photo"></label>
   {{!-- <div class="tile"><img width ="100%" onclick = "function(){
     console.log('hi')
     document.getElementById('picture').click
   }" src="{{art.photoPath}}" > </div> --}}
-  <div class="tile" data-scale="2.4"><img width ="100%" src="{{art.photoPath}}" onclick="window.open(this.src)"  > </div>
-  {{!-- <input type="file" id="picture" name="photo" value="{{art.photoPath}}"> --}}
 
-  <div class = "edit-form">
-    <label for="artName">Art Name: </label>
-  <input type="text" name="artName" value="{{art.artName}}" />
-<br>
-  <label>Location</label>
-  <input type="text" id="lat" name="latitude" placeholder="latitude">
-  <input type="text" id="lng" name="longitude" placeholder="longitude">
-  <br>
-  {{!-- <label for="country">Country: </label>
-  <input type="text" name="location[country]" value="{{art.location.country}}" />
-<br>
- <label for="city">City: </label>
-  <input type="text" name="location[city]" value="{{art.location.city}}" />
-<br>
-  <label for="street">Street: </label>
-  <input type="text" name="location[street]" value="{{art.location.street}}" />
-  <br>
-
-  <label for="postalcode">Postal Code: </label>
-  <input type="text" name="location[postalcode]" value="{{art.location.postalcode}}" />
-  <br> --}}
-
-  <label for="firstName">First Name: </label>
-  <input type="text" name="artistName[firstName]" value="{{art.artistName.firstName}}" />
-<br>
-  <label for="lastName">Last Name:</label>
-  <input type="text" name="artistName[lastName]" value="{{art.artistName.lastName}}" />
-<br>
-  <label for="nickName">Nick Name:</label>
-  <input type="text" name="artistName[nickName]" value="{{art.artistName.nickName}}" />
-<br>
-  <label for="dateTaken">Date Taken:</label>
-  <input type="text" name="dateTaken" value="{{art.dateTaken}}" />
-<br>
-  <button type="submit">UPDATE</button>
+<div class = "edit-container">
+  <div class='edit-info'>
+  <div><input type="file" class = '' id="picture" name="photo" value="{{art.photoPath}}"></div>
+  
+  <div class='edit-inline'>
+    <div><label class = 'labels text-muted' for="artName">Artwork title</label></div>
+    <div class='edit-data'><input type="text" name="artName" value="{{art.artName}}" /></div>
   </div>
+
+  <div class='edit-inline'>
+    <div><label class = 'labels text-muted'>Location<i style=color:#F60052>&midast;</i></label></div>
+    <div class='edit-coord'>
+    <input type="text" id="lat" name="latitude" placeholder="latitude">
+    <input type="text" id="lng" name="longitude" placeholder="longitude">
+    </div>
+  </div>
+
+
+  <div class='edit-inline'>
+    <div><label class = 'labels text-muted' for="firstName">Artist first name</label></div>
+    <div class='edit-data'><input type="text" name="artistName[firstName]" value="{{art.artistName.firstName}}" /></div>
+  </div>
+
+  <div class='edit-inline'>
+    <div><label class = 'labels text-muted' for="lastName">Artist last name</label></div>
+    <div class='edit-data'><input type="text" name="artistName[lastName]" value="{{art.artistName.lastName}}" /></div>
+  </div>
+
+  <div class='edit-inline'>
+    <div><label class = 'labels text-muted' for="nickName">Artist nick name</label></div>
+    <div class='edit-data'><input type="text" name="artistName[nickName]" value="{{art.artistName.nickName}}" /></div>
+  </div>
+
+  <div class='edit-inline'>
+    <div><label class = 'labels text-muted' for="dateTaken">Date Taken</label></div>
+    <div class='edit-data'><input type="text" name="dateTaken" value="{{art.dateTaken}}" /></div>
+  </div>
+ 
+  
+
+  <div class='edit-inline labels'><button class='signup-button' type="submit">UPDATE</button></div>
+  </div>
+
+  <div class='edit-image'><img src="{{art.photoPath}}" onclick="window.open(this.src)"></div>
+ 
+  </div>
+ 
 </form>
 
+<div><button onclick="getLocation()">Get your current location coordinates</button></div>
 
 <div id="map-4"></div>
 
 
 <script>
-  window.onscroll = function () { scrollFunction() };
 
-  function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      document.getElementById("navbar").style.top = "0";
-    } else {
-      document.getElementById("navbar").style.top = "-50px";
-    }
-  }
+ 
   function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
