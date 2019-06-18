@@ -18,22 +18,30 @@
 
 <div class = "edit-container">
   <div class='edit-info'>
-  <div><input type="file" class = '' id="picture" name="photo" value="{{art.photoPath}}"></div>
   
-  <div class='edit-inline'>
-    <div><label class = 'labels text-muted' for="artName">Artwork title</label></div>
-    <div class='edit-data'><input type="text" name="artName" value="{{art.artName}}" /></div>
-  </div>
 
   <div class='edit-inline'>
     <div><label class = 'labels text-muted'>Location<i style=color:#F60052>&midast;</i></label></div>
+    
     <div class='edit-coord'>
     <input type="text" id="lat" name="latitude" placeholder="latitude">
     <input type="text" id="lng" name="longitude" placeholder="longitude">
     </div>
   </div>
 
+  <div class='edit-border'>
+  <div class='comment'><i style=color:#F60052>&midast;</i>Find your coordinates by clicking on the map OR</div>
+  <div class='coordinates-button'><input class='coordinates-button' type='button'  onclick="getLocation()" value="get current"></input></div>
+  </div>
 
+  {{!-- <div class='coordinates-button edit-inline'><button onclick="getLocation()">Get your current location coordinates</button></div> --}}
+  <div><input type="file" class = '' id="picture" name="photo" value="{{art.photoPath}}"></div>
+  
+  <div class='edit-inline'>
+    <div><label class = 'labels text-muted' for="artName">Artwork title</label></div>
+    <div class='edit-data'><input type="text" name="artName" value="{{art.artName}}" /></div>
+  </div>
+  
   <div class='edit-inline'>
     <div><label class = 'labels text-muted' for="firstName">Artist first name</label></div>
     <div class='edit-data'><input type="text" name="artistName[firstName]" value="{{art.artistName.firstName}}" /></div>
@@ -56,7 +64,7 @@
  
   
 
-  <div class='edit-inline labels'><button class='signup-button' type="submit">UPDATE</button></div>
+  <div class='edit-inline labels'><button class='signup-button' type="submit">Update</button></div>
   </div>
 
   <div class='edit-image'><img src="{{art.photoPath}}" onclick="window.open(this.src)"></div>
@@ -65,7 +73,7 @@
  
 </form>
 
-<div><button onclick="getLocation()">Get your current location coordinates</button></div>
+
 
 <div id="map-4"></div>
 

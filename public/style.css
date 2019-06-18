@@ -87,21 +87,27 @@ body {
   width: 45%;
   margin: 1em;
  }
+ @media (max-width:1200px) {
+  .background div {
+    top: 34%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
 
  @media (max-width:1024px) {
   .map-right {
     font-size: 0.9em;
   }
-  .background div {
-    top: 0%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+
 }
 @media (max-width:768px) {
   .map-right {
     font-size: 0.85em;
   }
+  .background div {
+    top: 25%;
+}
 }
 @media (max-width:688px) {
   .map-right {
@@ -128,6 +134,12 @@ body {
     flex-direction: column;
   }
 }
+.comment {
+  color:#F60052;
+  font-size: 0.7em;
+  padding: 0;
+  white-space: nowrap;
+}
 
 @media (max-width:375px) {
   #map {
@@ -143,7 +155,7 @@ body {
     flex-direction: column;
   }
   .background div {
-    top: 40%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
@@ -166,7 +178,7 @@ body {
 #map-2 {
  height: 23em;
  position: fixed;
- margin: 0 50px 50px;
+ margin: 0 1em 1em;
 }
 
 #map-3 {
@@ -179,8 +191,9 @@ body {
 }
 
 #map-4 {
- height: 700px;
- width: 100%;
+  height: 23em;
+  position: fixed;
+  margin: 0.3em;
 }
 
 .signup-text {
@@ -315,7 +328,7 @@ ul#arts{
 }
 
 .labels {
-  width: 10em;
+  width: 8em;
   font-size: 1em;
   padding: 0;
 }
@@ -432,18 +445,47 @@ padding: 1em;
 }
 }
 @media (max-width:375px) {
-  #map-4 {
-    height: 50vh;
+  .edit-data input {
+    width: 12em;
   }
+  .labels {
+  font-size: 0.8em;
+  width: 8em;
+  }
+  .edit-image {
+    height: 30vh;
+    margin: auto;
+}
+}
+.coordinates-button {
+  /* margin-left: 8%; */
+  color: white;
+  background: #001333;
+  border: none;
+  width: 7.5em;
+  border-radius: 0.1em;
+}
+
+.edit-border {
+  display: flex;
+  align-items: center;
+  margin: 0.2em 0.2em 1em 0.2em;
+  justify-content: space-between;
+}
+
+
+
+@media (max-width:375px) {
   .edit-data input {
     width: 12em;
   }
   .edit-container {
-  align-items: flex-end;
+  align-items: flex-start;
   }
+  .coordinates-button {
+    
 }
-
-
+}
 .edit-data input {
   border: 0.06em solid #F60052;
   width: 15.25em;
@@ -451,33 +493,21 @@ padding: 1em;
 
 .edit-inline {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   margin: 0.2em;
+  justify-content: space-between
 }
 .edit-coord input{
   width: 7.5em;
   border: 0.06em solid #F60052;
 }
-.edit-image img {
-    height: 50vh;
-  }
+
 
 .edit-info {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: 0 1em;
-}
-
-.attach {
-  background-color: #001333;
-  color: white;
-  width: 280px;
-  height: 40px;
-  border: none;
-  border-radius: 0.1em;
-  margin: 15px 0px 15px;
-  font-size: 15px;
 }
 
 
