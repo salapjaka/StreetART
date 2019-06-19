@@ -2,6 +2,14 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'bebas_neueregular';
+  src: url('bebasneue-regular-webfont.woff2') format('woff2'),
+       url('bebasneue-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
 
 .background {
   height: 515px;
@@ -20,6 +28,7 @@ body {
 }
 
 #navbar {
+  font-family: 'bebas_neueregular';
   color: #f2f2f2;
   display: flex;
   justify-content: space-between;
@@ -182,8 +191,9 @@ body {
 }
 
 #map-3 {
- height: 700px;
- width: 100%;
+  height: 23em;
+  position: fixed;
+  margin: 0.3em;
 }
 .edit-data input {
   border: 0.06em solid #F60052;
@@ -211,7 +221,6 @@ body {
   border-bottom: #F60052 solid 0.1em;
   border-style: none none solid none;
   width: 280px;
-  height: 21px;
   margin: 15px 0px 15px;
 }
 
@@ -221,7 +230,7 @@ body {
   width: 280px;
   height: 40px;
   border: none;
-  border-radius: 0.1em;
+  /* border-radius: 0.1em; */
   margin: 15px 0px 15px;
   font-size: 15px;
 }
@@ -347,8 +356,8 @@ ul#arts{
 
 .details-data {
   border-bottom: 0.1em solid #F60052;
-  width: 10em;
-  margin-right: 1em;
+  width: 16.7em;
+  margin-right: 0.5em;
   font-size: 1em;
 }
 /* 
@@ -411,6 +420,7 @@ padding: 1em;
   }
   .details-image img {
     height: 30vh;
+    margin-top: 1em;
 }
 }
 
@@ -463,7 +473,7 @@ padding: 1em;
   background: #001333;
   border: none;
   width: 7.5em;
-  border-radius: 0.1em;
+  /* border-radius: 0.1em; */
 }
 
 .edit-border {
@@ -512,17 +522,18 @@ padding: 1em;
 
 
 
-.add-walls-h1 {
+.add-container {
+  width: fit-content;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }
-.add-walls-h1 button {
-  margin-left: 70%;
+
+.add-inline {
+    display: flex;
+    align-items: center;
+    margin: 0.2em;
 }
-.art-detail {
-  font-size: 4vh;
-}
+
 
 .thumbnail {
   width:150px;

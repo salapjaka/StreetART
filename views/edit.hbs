@@ -8,7 +8,7 @@
         <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a> --}}
 </div>
 
-<div class = 'title-center'>change is good - fire up!</div>
+<div class = 'title-center'>EDIT WALLZ</div>
 
 <form action="./edit?art_id={{art._id}}" method="post" enctype="multipart/form-data">
   {{!-- <div class="tile"><img width ="100%" onclick = "function(){
@@ -35,7 +35,7 @@
   </div>
 
   {{!-- <div class='coordinates-button edit-inline'><button onclick="getLocation()">Get your current location coordinates</button></div> --}}
-  <div><input type="file" class = '' id="picture" name="photo" value="{{art.photoPath}}"></div>
+  <div class = 'labels text-muted'><input type="file" id="picture" name="photo" value="{{art.photoPath}}"></div>
   
   <div class='edit-inline'>
     <div><label class = 'labels text-muted' for="artName">Artwork title</label></div>

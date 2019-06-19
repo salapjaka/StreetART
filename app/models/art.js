@@ -5,17 +5,9 @@ const Schema = mongoose.Schema
 const ArtSchema = new Schema({
   artName:                  String,
   photoPath:                String,
-  //location: Object, 
-  latitude: Number,
-  longitude: Number,
-//   location:   {type: { type:  String }, 
-//               coordinates:    [Number], 
-//               country:        String, 
-//               city:           String,
-//               street:         String,
-//               postalcode:     Number,
-// },
-              
+  latitude:                 Number,
+  longitude:                Number,
+     
  
   artistName: {firstName:   String,
               lastName:     String,

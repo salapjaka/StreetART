@@ -1,69 +1,75 @@
-<div id="navbar" class="nav justify-content">
+<div id="navbar-profile">
+        <div><a href="/">WALLZ</a></div>
+      <div>
+        <a href="/logout"> LOG OUT</a>
+        {{!-- <a href="/auth/facebook" class=""><span class=""></span> Facebook</a> --}}
+      </div>
+  {{!-- <a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter</a>
+        <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a> --}}
+</div>
 
-  <a href="/profile" class="btn">Go back to your Wallz</a>
-  <a href="/logout" class="btn">Logout</a>
-</div>
-<div class = 'add-walls-h1'><h1>ADD WALLZ</h1></div>
-<div class = 'add-walls-h1'><button onclick="getLocation()">Get your current location coordinates</button></div>
-</div>
-<div class = 'add-walls'>
+
+<div class = 'title-center'>ADD WALLZ</div>
+{{!-- <div><button onclick="getLocation()">Get your current location coordinates</button></div> --}}
+
+
 <form action="/add" method="post" enctype="multipart/form-data">
-  <label for="photoPath"></label>
-  <input type="file" name="photo" value="{{art.photoPath}}">
-  <br>
-  <label>Location</label>
-  <input type="text" id="lat" name="latitude" placeholder="latitude">
-  <input type="text" id="lng" name="longitude" placeholder="longitude">
-  <br>
-  <label for="artName">Art Name: </label>
+  <div class = "add-container">
+    <div class='add-inline'>
+    <div><label class = 'labels text-muted'>Location<i style=color:#F60052>&midast;</i></label></div>
+    
+    <div class='edit-coord'>
+    <input type="text" id="lat" name="latitude" placeholder="latitude">
+    <input type="text" id="lng" name="longitude" placeholder="longitude">
+    </div>
+  </div>
+
+  <div class='edit-border'>
+  <div class='comment'><i style=color:#F60052>&midast;</i>Find your coordinates by clicking on the map OR</div>
+  <div class='coordinates-button'><input class='coordinates-button' type='button'  onclick="getLocation()" value="get current"></input></div>
+  </div>
+
+  <div class='add-inline'>
+    <div><label for="photoPath"></label></div>
+  <div class = 'labels text-muted' ><input type="file" name="photo" value="{{art.photoPath}}"></div>
+  </div>
   
-  <input type="text" name="artName" value="{{art.artName}}" />
-  <br>
-  {{!-- <label for="country">Country: </label>
-  <input type="text" name="location[country]" value="{{art.location.country}}" />
-<br>
- <label for="city">City: </label>
-  <input type="text" name="location[city]" value="{{art.location.city}}" />
-<br>
-  <label for="street">Street: </label>
-  <input type="text" name="location[street]" <value="{{art.location.street}}" />
-  <br>
+  
+  <div class='add-inline'>
+      <div><label class = 'labels text-muted' for="artName">Art Name: </label></div>
+      <div class='edit-data'><input type="text" name="artName" value="{{art.artName}}" /></div>
+  </div>
+  
+  <div class='add-inline'>
+      <div><label class = 'labels text-muted' for="firstName">Artist First Name: </label></div>
+      <div class='edit-data'><input type="text" name="artistName[firstName]" value="{{art.artistName.firstName}}" /></div>
+  </div>
 
-  <label for="postalcode">Postal Code: </label>
-  <input type="text" name="location[postalcode]" value="{{art.location.postalcode}}" />
-  <br> --}}
+  <div class='add-inline'>
+      <div><label class = 'labels text-muted' for="lastName">Artist Last Name:</label></div>
+      <div class='edit-data'><input type="text" name="artistName[lastName]" value="{{art.artistName.lastName}}" /></div>
+  </div>
 
+  <div class='add-inline'>
+      <div><label class = 'labels text-muted' for="nickName">Artist Nick Name:</label></div>
+      <div class='edit-data'><input type="text" name="artistName[nickName]" value="{{art.artistName.nickName}}" /></div>
+  </div>
 
-  <label for="firstName">Artist First Name: </label>
-  <input type="text" name="artistName[firstName]" value="{{art.artistName.firstName}}" />
-  <br>
-  <label for="lastName">Artist Last Name:</label>
-  <input type="text" name="artistName[lastName]" value="{{art.artistName.lastName}}" />
-  <br>
-  <label for="nickName">Artist Nick Name:</label>
-  <input type="text" name="artistName[nickName]" value="{{art.artistName.nickName}}" />
-  <br>
-  <label for="dateTaken">Date Photo Taken:</label>
-  <input type="text" name="dateTaken" value="{{art.dateTaken}}" />
-  <br>
-  <div class='add-walls-h1'><button  type="submit">ADD</button></div>
+  <div class='add-inline'>
+      <div><label class = 'labels text-muted' for="dateTaken">Date Photo Taken:</label></div>
+      <div class='edit-data'><input type="text" name="dateTaken" value="{{art.dateTaken}}" /></div>
+  </div>
+
+  <div class='add-inline labels'><button class='signup-button' type="submit">ADD</button></div>
+</div>
 </form>
 
 
-</div>
 <div id="map-3"></div>
 
 <script>
 
-  window.onscroll = function () { scrollFunction() };
-
-  function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      document.getElementById("navbar").style.top = "0";
-    } else {
-      document.getElementById("navbar").style.top = "-50px";
-    }
-  }
+ 
    function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
